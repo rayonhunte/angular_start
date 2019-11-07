@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthQuery } from './auth/auth.query';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,7 @@ export class AppComponent {
   isLoggedIn$: Observable<boolean>;
 
   constructor(private authQuery: AuthQuery) {
-    this.isLoggedIn$ = this.authQuery.isLoggedIn$;
+    
   }
+
 }

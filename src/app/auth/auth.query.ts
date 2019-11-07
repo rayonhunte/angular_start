@@ -1,12 +1,16 @@
-import {Query} from '@datorama/akita';
+import { Query, toBoolean } from '@datorama/akita';
+import { Auth } from '../model/auth.model';
 import { AuthStore } from './auth.store';
-import { AuthState } from '../model/auth.model';
+import { Injectable } from '@angular/core';
 
-export class AuthQuery extends Query <AuthState> {
+
+@Injectable({
+    providedIn: 'root'
+})
+export class AuthQuery extends Query<Auth> {
+    isLoggedin$ = this.select(state => toBoolean(state.token))
 
     constructor(protected store: AuthStore) {
-        super(store);
+        super(store)
     }
 }
-
-
