@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthQuery } from './auth/auth.query';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularStart';
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private authQuery: AuthQuery) {
+    this.isLoggedIn$ = this.authQuery.isLoggedIn$;
+  }
 }
