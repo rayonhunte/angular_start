@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-4">
+            <!-- login -->
+            <form [formGroup]="loginForm" *ngIf="!show">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" required autocomplete="false">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm">Login</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-4">
+            <!-- login -->
+            <form [formGroup]="regPage" *ngIf="show">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" required>
+
+                    <label for="first">First Name</label>
+                    <input type="text" class="form-control" formControlName="first" required>
+
+                    <label for="last">Last Name</label>
+                    <input type="text" class="form-control" formControlName="last" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm">Regester</button>
+            </form>
+            <button type="button" class="btn btn-primary btn-sm btn-block" style="margin-top: 1em; margin-bottom: 1em;"
+                (click)="show = !show">Toggle Regester / Login</button>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
